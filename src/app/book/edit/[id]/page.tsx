@@ -5,7 +5,7 @@ import useSWR from 'swr'
 
 const url = 'http://127.0.0.1:8080/books'
 const UpdateBook = ({params}: {params:{id:number}}) => {
-  const { data : book, isLoading, error } = useSWR(`${url}/${params.id}/books`, fetcher)
+  const { data : book, isLoading, error } = useSWR(`${url}/${params.id}`, fetcher)
   const [title, setTitle] = useState<String>('')
   const [description, setDescription] = useState<String>('')
   const [image_url, setImageUrl] = useState<String>('')
@@ -16,6 +16,8 @@ const UpdateBook = ({params}: {params:{id:number}}) => {
   
   useEffect(() => {
     if (book) {
+      console.log(book);
+      
       setTitle(book.title)
       setDescription(book.description)
       setImageUrl(book.image_url)
@@ -91,7 +93,7 @@ const UpdateBook = ({params}: {params:{id:number}}) => {
               type='number' 
               name='release_year'
               value={ release_year }
-              onChange={(e:any) => setReleaseYear(e.target.value)}
+              onChange={(e:any) => setReleaseYear(+e.target.value)}
               />
         </div>
         <div className='w-full py-2'>
@@ -111,7 +113,7 @@ const UpdateBook = ({params}: {params:{id:number}}) => {
               type='number' 
               name='total_page'
               value={ total_page }
-              onChange={(e:any) => setTotalPage(e.target.value)}
+              onChange={(e:any) => setTotalPage(+e.target.value)}
               />
         </div>
         <div className='w-full py-2'>
@@ -121,7 +123,7 @@ const UpdateBook = ({params}: {params:{id:number}}) => {
               type='number' 
               name='category_id'
               value={ category_id }
-              onChange={(e:any) => setCategoryId(e.target.value)}
+              onChange={(e:any) => setCategoryId(+e.target.value)}
               />
         </div>
         <div className='w-full py-2'>

@@ -69,7 +69,7 @@ const CreateBook = () => {
               className='w-full border-[1px] border-gray-200 p-2 rounded-sm' 
               type='text' 
               name='release_year'
-              onChange={(e:any) => setReleaseYear(e.target.value)}
+              onChange={(e:any) => setReleaseYear(+e.target.value)}
               />
         </div>
         <div className='w-full py-2'>
@@ -87,7 +87,7 @@ const CreateBook = () => {
               className='w-full border-[1px] border-gray-200 p-2 rounded-sm' 
               type='text' 
               name='total_page'
-              onChange={(e:any) => setTotalPage(e.target.value)}
+              onChange={(e:any) => setTotalPage(+e.target.value)}
               />
         </div>
         <div className='w-full py-2'>
@@ -96,7 +96,7 @@ const CreateBook = () => {
               className='w-full border-[1px] border-gray-200 p-2 rounded-sm' 
               type='text' 
               name='category_id'
-              onChange={(e:any) => setCategoryId(e.target.value)}
+              onChange={(e:any) => setCategoryId(+e.target.value)}
               />
         </div>
         <div className='w-full py-2'>
